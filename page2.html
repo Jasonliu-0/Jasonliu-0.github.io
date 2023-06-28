@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- 这是修改后的第二个页面的代码 -->
+<html>
+<head>
+  <title>不一样的视觉盛宴</title>
+  <style>
+    /* 这是一些样式代码 */
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('images/Princess PSD file.jpg');
+	  background-size: 100% 100%; /* 让背景图片以页面的100%呈现 */
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 50px;
+      text-shadow: 2px 2px 5px black; /* 文字添加阴影效果 */
+      animation: bounce 1s infinite; /* 标题添加弹跳动画 */
+    }
+    p {
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      font-style: italic; /* 文字添加斜体效果 */
+    }
+    .container {
+      display: grid; /* 网格布局 */
+      grid-template-columns: repeat(3, 1fr); /* 定义三列 */
+      grid-template-rows: repeat(2, 1fr); /* 定义两行 */
+      grid-gap: 10px; /* 定义间隙 */
+      margin: 10px;
+    }
+    .item {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 使图片适应容器大小 */
+      border-radius: 10px; /* 给图片添加圆角效果 */
+      box-shadow: 2px 2px 5px black; /* 给图片添加阴影效果 */
+      transition: transform 0.5s; /* 给图片添加过渡效果 */
+    }
+	img:hover {
+	  transform: scale(1.1); /* 给图片添加放大效果 */
+	}
+	/* 这是搜索框和按钮的样式 */
+	input {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 80%;
+	  height: 40px;
+	  border-radius: 20px;
+	  border: none;
+	  padding-left: 20px;
+	  font-size: 18px;
+	}
+	button {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 10%;
+	  height: 40px;
+	  border-radius: 20px;
+	  border: none;
+	  background-color: white;
+	  color: black;
+	  font-size: 18px;
+	}
+	button:hover {
+	  background-color: black;
+	  color:white;
+	}
+	
+  </style>
+</head>
+<body>
+  <h1>精美壁纸：不一样的视觉盛宴</h1>
+  <p>快来欣赏我收藏的一些精美图片吧，点击图片可以查看大图或者下载哦。</p>
+  <!-- 搜索表单 -->
+	<form action="https://cn.bing.com/images/search?q={query}.html" method="get">
+	  <!-- 文本输入框 -->
+	  <input type="text" name="query" placeholder="请输入你想要搜索的壁纸">
+	  <!-- 搜索按钮 -->
+	  <button type="submit">搜索</button>
+	</form>
+  <div class="container"> <!-- 这是一个容器元素 -->
+    <div class="item"> <!-- 这是一个子元素 -->
+      <img src="images/1 (1).jpg" alt="壁纸1" onclick="window.open(this.src)">
+    </div>
+    <div class="item"> <!-- 这是一个子元素 -->
+      <img src="images/1 (2).jpg" alt="壁纸2" onclick="window.open(this.src)">
+    </div>
+    <div class="item"> <!-- 这是一个子元素 -->
+      <img src="images/1 (3).jpg" alt="壁纸3" onclick="window.open(this.src)">
+    </div>
+    <div class="item"> <!-- 这是一个子元素 -->
+      <img src="images/1 (4).jpg" alt="壁纸4" onclick="window.open(this.src)">
+    </div>
+	<div class="item"> <!-- 这是一个子元素 -->
+	  <img src="images/1 (5).jpg" alt="壁纸5" onclick="window.open(this.src)">
+	</div>
+	<div class="item"> <!-- 这是一个子元素 -->
+	  <img src="images/1 (6).jpg" alt="壁纸6" onclick="window.open(this.src)">
+	</div>
+  </div>
+</body>
+</html>

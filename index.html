@@ -1,0 +1,181 @@
+<html>
+<head>
+  <title>我的个人主页</title>
+  <style>
+    /* 这是一些样式代码 */
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("images/spongebob-bg.png"); /* 这是背景图 */
+      background-size: 100% 100%; /* 让背景图片以页面的100%呈现 */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 50px;
+      text-shadow: 2px 2px 5px black; /* 添加阴影效果 */
+    }
+    p {
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      text-shadow: 1px 1px 3px black; /* 添加阴影效果 */
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+    }
+    li {
+      margin: 20px;
+    }
+    a {
+		text-shadow: 2px 2px 5px black; /* 添加阴影效果 */
+		font-weight: bold;
+        color: white;
+      text-decoration: none;
+      transition: all 0.3s; /* 添加过渡效果 */
+    }
+    a:hover {
+      color: yellow;
+      transform: scale(1.2); /* 添加缩放效果 */
+    }
+    button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 50px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      background-image: linear-gradient(to right, green, limegreen); /* 添加渐变色效果 */
+      box-shadow: 0 0 10px green; /* 添加阴影效果 */
+    }
+    button:hover {
+      background-image: linear-gradient(to left, green, limegreen); /* 改变渐变方向 */
+    }
+    footer { /* 添加页脚元素 */
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer p { /* 设置页脚文本样式 */
+      color:white;
+      margin-left: 20px;
+    }
+    footer a { /* 设置页脚链接样式 */
+     color:white; 
+     margin-right: 20px; 
+     text-decoration:none; 
+     font-weight:bold; 
+   }
+   footer a:hover { /* 设置页脚链接悬停样式 */
+     color:red; 
+   }
+    @media (max-width: 600px) { /* 在屏幕宽度小于600px时应用以下样式 */
+      ul {
+           /* 把链接排列成一列 */
+        }
+        button {
+          width: 100%; /* 把按钮宽度设置为100% */
+        }
+      }
+</style>
+</head>
+<body>
+<h1>欢迎来到我的个人主页</h1>
+<p>我是刘晓波，今年19岁，爱好是听音乐，看电影。</p>
+<p>你可以点击下面的链接，了解我的社交账号和更多内容。</p>
+<ul>
+<li><a href="https://music.163.com/#/user/home?id=1312546911">我的网易云</a></li>
+<li><a href="weixin://contacts/profile/JasonLXB0507">我的微信</a></li>
+<li><a href="page2.html">我的壁纸展示</a></li>
+<br />
+<li><a href="https://haiyong.site/moyu/">点击此进入摸鱼小游戏(友情链接)</a></li>
+</ul>
+<button id="surprise">点击此处有惊喜</button> <!-- 这是一个点击按钮 -->
+<audio id="music" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" autoplay loop> <!-- 这是一个背景音乐 -->
+Your browser does not support the audio element.
+</audio>
+
+<script>
+// 这是一些脚本代码
+var button = document.getElementById("surprise"); // 获取按钮元素
+var music = document.getElementById("music"); // 获取音乐元素
+var questions = [ // 定义一些有趣的问题
+{q:"海绵宝宝的最好朋友是谁？", a:"派大星"},
+{q:"海绵宝宝的老板是谁？", a:"蟹老板"},
+{q:"海绵宝宝的宠物是？", a:"小蜗"},
+{q:"海绵宝宝住在哪里？", a:"菠萝"},
+{q:"海绵宝宝的梦想是什么？", a:"成为最棒的煎饼师"}
+];
+var sounds = [ // 定义一些音效
+"https://www.myinstants.com/media/sounds/spongebob-squarepants-sound-effects-1.mp3",
+"https://www.myinstants.com/media/sounds/spongebob-squarepants-sound-effects-2.mp3",
+"https://www.myinstants.com/media/sounds/spongebob-squarepants-sound-effects-3.mp3",
+"https://www.myinstants.com/media/sounds/spongebob-squarepants-sound-effects-4.mp3",
+"https://www.myinstants.com/media/sounds/spongebob-squarepants-sound-effects-5.mp3"
+];
+var images = [ // 定义一些图片
+"images/spongebob-happy.png",
+"images/spongebob-love.png",
+"images/spongebob-handsome.png",
+"images/spongebob-surprised.png",
+"images/spongebob-funny.png"
+];
+var messages = ["哎呦，不错哦！", "你很棒！", "可以啊！", "厉害！", "你很优秀啊！"]; // 定义一些鼓励性的文案
+var emojis = ["😊", "😁", "😍", "😘", "😎"]; // 定义一些微笑表情包
+button.onclick = function() { // 定义按钮的点击事件
+// 获取一个随机索引
+var index = Math.floor(Math.random() * questions.length);
+
+var question = questions[index]; // 获取对应的问题
+// 创建一个音频元素
+var sound = sounds[index]; 
+var image = images[index]; // 获取对应的图片
+var message = messages[index]; // 获取对应的文案
+var emoji = emojis[index]; // 获取对应的表情包
+var answer = prompt(question.q); // 弹出一个输入框，显示问题
+if (answer == question.a) { // 如果答案正确
+  alert("恭喜你，答对了！" + message + " " + emoji); // 弹出一个提示框，显示恭喜信息和鼓励文案和表情包
+  music.pause(); // 暂停背景音乐
+  var audio = new Audio(sound); // 创建一个新的音频元素，播放音效
+  audio.play();
+  // 创建一个图片元素
+  var img = document.createElement("img");
+  img.src = image;
+  // 设置图片元素的样式
+  img.style.position = "absolute";
+  img.style.width="200px";
+  img.style.height="200px";
+  img.style.left = "50%";
+  img.style.top = "50%";
+  img.style.transform = "translate(-50%, -50%)";
+  document.body.appendChild(img); // 把图片添加到页面中
+  setTimeout(function() { // 设置一个定时器，在3秒后执行以下操作
+    music.play(); // 恢复背景音乐
+    document.body.removeChild(img); // 把图片从页面中移除
+  }, 3000);
+} else { // 如果答案错误
+  alert("很遗憾，答错了！"); // 弹出一个提示框，显示遗憾信息
+}
+};
+
+</script>
+<footer> <!-- 添加页脚内容 -->
+<p>© 2023 Proudly created by Liu Xiaobo.</p>
+<a href="mailto:3110712912@qq.com">Contact Me</a>
+</footer>
+</body>
+</html>
