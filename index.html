@@ -105,7 +105,7 @@
 <br />
 <li><a href="https://haiyong.site/moyu/">点击此进入摸鱼小游戏(友情链接)</a></li>
 </ul>
-<button id="surprise">点击此处有惊喜</button> <!-- 这是一个点击按钮 -->
+<button id="surprise" onclick=“showSurprise()>点击此处有惊喜</button> <!-- 这是一个点击按钮 -->
 <audio id="music" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" autoplay loop> <!-- 这是一个背景音乐 -->
 Your browser does not support the audio element.
 </audio>
@@ -137,7 +137,7 @@ var images = [ // 定义一些图片
 ];
 var messages = ["哎呦，不错哦！", "你很棒！", "可以啊！", "厉害！", "你很优秀啊！"]; // 定义一些鼓励性的文案
 var emojis = ["😊", "😁", "😍", "😘", "😎"]; // 定义一些微笑表情包
-button.onclick = function() { // 定义按钮的点击事件
+button.onclick = function showSurprise() { // 定义按钮的点击事件
 // 获取一个随机索引
 var index = Math.floor(Math.random() * questions.length);
 
