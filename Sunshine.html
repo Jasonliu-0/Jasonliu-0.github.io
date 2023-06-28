@@ -1,0 +1,141 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .popup {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-color: white;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .popup h1 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .popup p {
+      font-size: 18px;
+    }
+
+    .popup button {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+    }
+
+    .popup button:hover {
+      transform: scale(1.1);
+    }
+
+    .popup button:focus {
+      outline: none;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .show {
+      animation: bounce 0.5s ease-in-out;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="popup show" id="popup">
+      <h1>Surprise！</h1>
+      <p id="message">你是最棒的！</p>
+      <button id="close">X</button>
+    </div>
+  </div>
+  
+  <audio id="audio" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" autoplay loop></audio>
+
+  <script>
+    // 鼓励性文案的数组
+    var messages = [
+      "你是最棒的！",
+      "你很有才华！",
+      "你很努力！",
+      "你很聪明！",
+      "你很勇敢！",
+      "你很善良！",
+      "你很乐观！",
+      "你很有趣！",
+      "你很美丽！",
+      "你很帅气！"
+    ];
+
+    // 获取元素
+    var popup = document.getElementById("popup");
+    var message = document.getElementById("message");
+    var close = document.getElementById("close");
+    var audio = document.getElementById("audio");
+
+    // 关闭弹窗的函数
+    function closePopup() {
+      popup.classList.remove("show");
+      
+       // 停止音乐
+       audio.pause();
+       audio.currentTime = 0;
+
+       // 随机选择一个文案
+       var randomIndex = Math.floor(Math.random() * messages.length);
+       var randomMessage = messages[randomIndex];
+
+       // 设置文案
+       message.textContent = randomMessage;
+
+       // 延迟一秒后重新显示弹窗
+       setTimeout(function() {
+         popup.classList.add("show");
+
+         // 播放音乐
+         audio.play();
+       }, 1000);  
+    }
+    // 给关闭按钮添加点击事件
+    close.addEventListener("click", closePopup);
+  </script>
+</body>
+</html>
